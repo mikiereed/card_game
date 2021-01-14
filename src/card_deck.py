@@ -1,37 +1,24 @@
 from operator import attrgetter
 from src.card import Card
 
-SUITS_COUNT = 4
-VALUES_COUNT = 13
+CARD_VALUE_STRINGS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+CARD_SUITS = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
 class CardDeck():   
     def __init__(self, shuffled=False):
-        self.deck = []
-        suits = [x for x in range(SUITS_COUNT)]
-        values = [x + 1 for x in range(VALUES_COUNT)]
-        for suit in suits:
-            for value in values:
-                self.deck.append(Card(value, suit))
+        self.cards = []
+        for suit in CARD_SUITS:
+            for value in CARD_VALUE_STRINGS:
+                self.cards.append((suit, value))
 
     def get_card_count(self):
-        return len(self.deck)
+        return len(self.cards)
 
-    def sort_cards(self, sort_order = ['spade', 'heart', 'diamond', 'club']):
-        sort_order = self.__clean_suit_list(sort_order)
+    def sort_cards(self, sort_order = ['Spades', 'Hearts', 'Diamonds', 'Clubs']):
         sort_order_values = {key: i for i, key in enumerate(sort_order)}
         print(sort_order_values)
         # self.deck.sort(key=attrgetter('suit', 'value'))
-        key=lambda x: sort_order_values[x['suit']]
-
-    def __clean_suit_list(self, suit_list):
-        clean_suit_list = []
-        for suit in suit_list:
-            suit = suit.lower()
-            if suit[-1:] == 's':
-                suit = suit[:-1]
-            clean_suit_list.append(suit)
-        
-        return clean_suit_list
+        # key=lambda x: sort_order_values[x['suit']]
 
     def __repr__(self):
         card_count = self.get_card_count()
@@ -42,5 +29,7 @@ class CardDeck():
         return f'Deck with {card_count} Card{plural}'
 
 deck = CardDeck()
-deck.sort_cards(['Spades', 'Club', 'diamonds', 'heart'])
+# for card in deck.deck:
+    # print(card)
+deck.sort_cards(['Spades', 'Clubs', 'Diamonds', 'Hearts'])
 print(deck)
