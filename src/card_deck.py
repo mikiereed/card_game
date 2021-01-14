@@ -14,11 +14,12 @@ class CardDeck():
     def get_card_count(self):
         return len(self.cards)
 
+    def pull_card_from_deck(self):
+        return self.cards.pop()
+
     def sort_cards(self, sort_order = ['Spades', 'Hearts', 'Diamonds', 'Clubs']):
         sort_order_values = {key: i for i, key in enumerate(sort_order)}
-        print(sort_order_values)
-        # self.deck.sort(key=attrgetter('suit', 'value'))
-        # key=lambda x: sort_order_values[x['suit']]
+        self.cards.sort(key=lambda x: sort_order_values[x[0]])
 
     def __repr__(self):
         card_count = self.get_card_count()
@@ -29,7 +30,13 @@ class CardDeck():
         return f'Deck with {card_count} Card{plural}'
 
 deck = CardDeck()
-# for card in deck.deck:
-    # print(card)
-deck.sort_cards(['Spades', 'Clubs', 'Diamonds', 'Hearts'])
+# deck.sort_cards(['Spades', 'Clubs', 'Diamonds', 'Hearts'])
+# for card in deck.cards:
+#     print(card)
+card = deck.pull_card_from_deck()
+print(card)
+card = deck.pull_card_from_deck()
+print(card)
+card = deck.pull_card_from_deck()
+print(card)
 print(deck)
