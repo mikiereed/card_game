@@ -19,7 +19,7 @@ PLAYERS = 2
 SUIT_SCORING = {'Clubs': 4, 'Hearts': 3, 'Diamonds': 2, 'Spades': 1}
 
 def play_game():
-    """Main entry point for game. Runs if '__main__'"""
+    """Main entry point for game."""
     is_keep_playing = True
     while is_keep_playing:
         card_deck = CardDeck(shuffled=True)
