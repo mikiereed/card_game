@@ -1,4 +1,8 @@
 # card_game
+
+#1, #2, & #3 below are accomplished through the CardDeck() class in the src/card_deck.py file.
+#4 below is run in the src/game.py file.
+
 1.	Shuffle cards in the deck: randomly mix the cards in the card deck, and return a whole deck of cards with a mixed order. 
 
 2.	Get a card from the top of the deck: get one card from the top of the card deck, return a card, and if there is no card left in the deck, return error or exception.  

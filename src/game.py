@@ -14,7 +14,7 @@ from src.card_deck import CardDeck
 
 # Global Setup Variables
 CARDS = 3
-NAN_VALUES_SCORING = {'Ace': 1, 'Jack': 11, 'Queen': 12, 'King': 13}
+NAN_VALUES_SCORING = {'Ace': 1, 'Jack': 11, 'Queen': 12, 'King': 13} # Not a Number
 PLAYERS = 2
 SUIT_SCORING = {'Clubs': 4, 'Hearts': 3, 'Diamonds': 2, 'Spades': 1}
 
