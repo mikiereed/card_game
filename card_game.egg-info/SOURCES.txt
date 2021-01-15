@@ -1,5 +1,0 @@
-setup.py
-card_game.egg-info/PKG-INFO
-card_game.egg-info/SOURCES.txt
-card_game.egg-info/dependency_links.txt
-card_game.egg-info/top_level.txt
