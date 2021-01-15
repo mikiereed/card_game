@@ -24,7 +24,7 @@ def play_game():
     while is_keep_playing:
         card_deck = CardDeck(shuffled=True)
         players, players_cards = _setup_players_and_card_lists()
-
+        # column width used to print results in proper sized columns
         print_column_width = _get_print_column_width(phrases=card_deck.cards,
                                                      column_padding=3)
         _print_list_as_columns(players, print_column_width)
