@@ -1,5 +1,3 @@
-from card_deck import CardDeck
-
 """
 1.	Shuffle cards in the deck: randomly mix the cards in the card deck, and return a whole deck of cards with a mixed order. 
 

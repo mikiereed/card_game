@@ -21,8 +21,7 @@ class CardDeck():
             return self.cards.pop()
         except IndexError as identifier:
             raise IndexError("The deck is empty")
-        
-
+      
     def shuffle_cards(self):
         shuffled_cards = []
         while self.cards:
