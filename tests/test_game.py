@@ -4,7 +4,7 @@ import src.game as game
 
 def test_deal_and_print_cards():
     card_deck = CardDeck()
-    _, players_cards = game._set_up_players_and_card_lists()
+    _, players_cards = game._setup_players_and_card_lists()
     game._deal_and_print_cards(card_deck, players_cards, column_width=0)
 
     cards_per_player = len(players_cards[0])
@@ -70,7 +70,7 @@ def test_print_list_as_columns(capfd):
     assert print_output == 'test phrase test        \n'
 
 def test_set_up_players_and_card_lists():
-    players, players_cards = game._set_up_players_and_card_lists()
+    players, players_cards = game._setup_players_and_card_lists()
 
     expected_players_count = game.PLAYERS
     is_correct_players_count = (len(players) == expected_players_count)

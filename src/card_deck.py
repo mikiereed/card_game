@@ -28,6 +28,7 @@ class CardDeck():
     Attributes:
         cards: An ordered list of the current cards in the deck.
     """
+
     def __init__(self, shuffled=False):
         """Inits CardDeck object with a deck of cards."""
         self.cards = []
@@ -38,18 +39,18 @@ class CardDeck():
             self.shuffle_cards()
 
     def get_card_count(self):
-        """Return the amount of cards left in the deck."""
+        """Returns the amount of cards left in the deck."""
         return len(self.cards)
 
     def pull_card_from_deck(self):
-        """Remove and return the top card from the deck."""
+        """Removes and returns the top card from the deck."""
         try:
             return self.cards.pop()
         except IndexError as deck_empty:
             raise IndexError("The deck is empty") from deck_empty
 
     def shuffle_cards(self):
-        """Shuffle deck of cards using the random package."""
+        """Shuffles the deck of cards using the random package."""
         shuffled_cards = []
         while self.cards:
             random_number = random.randint(0, self.get_card_count() - 1)
@@ -58,13 +59,13 @@ class CardDeck():
         self.cards = shuffled_cards.copy()
 
     def sort_cards(self, sort_order=None):
-        """Sort cards based on suits (default or given), then by value (Ace high)."""
+        """Sorts cards based on suits (default or given), then by value (Ace high)."""
         sort_order_suits = {key: i for i, key in enumerate(sort_order)}
         sort_order_values = {key: i for i, key in enumerate(CARD_VALUE_STRINGS)}
         self.cards.sort(key=lambda x: (sort_order_suits[x[0]], sort_order_values[x[1]]))
 
     def __repr__(self):
-        """CardDeck object is shown as 'Deck with n Cards'."""
+        """Represents CardDeck object as 'Deck with n Cards'."""
         card_count = self.get_card_count()
         if card_count == 1:
             plural = ''
