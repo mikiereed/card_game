@@ -1,4 +1,4 @@
-from card_deck import CardDeck
+from src.card_deck import CardDeck
 
 CARDS = 3
 NAN_VALUES_SCORING = {'Ace': 1, 'Jack': 11, 'Queen': 12, 'King': 13}
@@ -11,11 +11,12 @@ def play_game():
         card_deck = CardDeck(shuffled=True)
         players, players_cards = _set_up_players_and_card_lists()
 
-        print_column_width = _get_print_column_width(phrases=card_deck.cards, column_padding=3)
+        print_column_width = _get_print_column_width(phrases=card_deck.cards,
+                                                     column_padding=3)
         _print_list_as_columns(players, print_column_width)
         _deal_and_print_cards(card_deck, players_cards, print_column_width)
         scores = _get_and_print_scores(players_cards, print_column_width)
-        _get_and_print_winners(players, scores)       
+        _get_and_print_winners(players, scores)
 
         keep_playing = input("Do you want to play again? y/n: ")
         if keep_playing.startswith('n'):
@@ -43,7 +44,7 @@ def _get_and_print_winners(players, scores):
 
 def _get_card_score(card):
     suit_score = SUIT_SCORING[card[0]]
-    try: 
+    try:
         value_score = int(card[1])
     except ValueError:
         value_score = NAN_VALUES_SCORING[card[1]]

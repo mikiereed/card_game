@@ -4,7 +4,7 @@ import random
 CARD_VALUE_STRINGS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
 CARD_SUITS = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
-class CardDeck():   
+class CardDeck():
     def __init__(self, shuffled=False):
         self.cards = []
         for suit in CARD_SUITS:
@@ -21,7 +21,7 @@ class CardDeck():
             return self.cards.pop()
         except IndexError as identifier:
             raise IndexError("The deck is empty")
-      
+
     def shuffle_cards(self):
         shuffled_cards = []
         while self.cards:
