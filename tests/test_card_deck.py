@@ -32,20 +32,12 @@ def test_shuffle_cards():
     shuffled_cards_sample = card_deck.cards[:5]
     assert unshuffled_cards_sample != shuffled_cards_sample
 
-
-class TestSortCards():
-    
-    def test_sort_cards_default(self):
-        card_deck = CardDeck(shuffled=True)
-        card_deck.sort_cards()
-        sorted_cards_sample = card_deck.cards[::13]
-        # default suits order from CardDeck.sort_cards() method
-        expected = [('Spades', '2'), ('Hearts', '2'), ('Diamonds', '2'), ('Clubs', '2')]
-        assert sorted_cards_sample == expected
-
-    def test_sort_cards(self):
-        card_deck = CardDeck(shuffled=True)
-        card_deck.sort_cards(['Clubs', 'Hearts', 'Spades', 'Diamonds'])
-        sorted_cards_sample = card_deck.cards[::13]
-        expected = [('Clubs', '2'), ('Hearts', '2'), ('Spades', '2'), ('Diamonds', '2')]
-        assert sorted_cards_sample == expected
+@pytest.mark.parametrize('sort_order', [
+    pytest.param(['Clubs', 'Hearts', 'Spades', 'Diamonds'], id='clubs, hearts, spades, diamonds'),
+    pytest.param(['Hearts', 'Spades', 'Diamonds', 'Clubs'], id='hearts, spades, diamonds, clubs')])
+def test_sort_cards(sort_order):
+    card_deck = CardDeck(shuffled=True)
+    card_deck.sort_cards(sort_order)
+    sorted_cards_sample = card_deck.cards[::13]
+    expected = [(sort_order[0], '2'), (sort_order[1], '2'), (sort_order[2], '2'), (sort_order[3], '2')]
+    assert sorted_cards_sample == expected

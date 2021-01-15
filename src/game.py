@@ -23,13 +23,13 @@ def play_game():
             is_keep_playing = False
 
 def _deal_and_print_cards(card_deck, players_cards, column_width):
-    for i in range(CARDS):
-            cards_pulled = []
-            for i, _ in enumerate(players_cards):
-                card_pulled = card_deck.pull_card_from_deck()
-                players_cards[i].append(card_pulled)
-                cards_pulled.append(str(card_pulled))
-            _print_list_as_columns(cards_pulled, column_width)
+    for _ in range(CARDS):
+        cards_pulled = []
+        for j, _ in enumerate(players_cards):
+            card_pulled = card_deck.pull_card_from_deck()
+            players_cards[j].append(card_pulled)
+            cards_pulled.append(str(card_pulled))
+        _print_list_as_columns(cards_pulled, column_width)
 
 def _get_and_print_scores(players_cards, column_width):
     scores = _get_scores(players_cards)
